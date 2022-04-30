@@ -1,0 +1,59 @@
+@import './typography';
+@import './borders';
+@import './color-palette';
+
+// Colors
+$clr-white: white;
+$clr-black: black;
+
+$clr-primary: hsl(0, 93%, 64%);
+$clr-primary-light: hsl(0, 100%, 79%);
+$clr-secondary: hsl(240, 14%, 11%);
+$clr-secondary-light: hsl(240, 12%, 30%);
+$clr-tertiary: $clr-white;
+
+$clr-txt-primary: $clr-black;
+$clr-txt-secondary: $clr-tertiary;
+$clr-txt-tertiary: $clr-primary;
+
+$clr-background-primary: $clr-tertiary;
+$clr-background-secondary: $clr-secondary;
+$clr-background-tertiary: $clr-primary;
+
+// Typography
+$f-family-primary: 'Commissioner', system-ui, sans-serif;
+
+$f-title-max: $f-size-max;
+$f-title-lg: $f-size-xxl;
+$f-title-md: $f-size-xl;
+$f-title-sm: $f-size-lg;
+$f-title-xs: $f-size-md;
+$f-title-min: $f-size-xxs;
+
+$f-txt-max: $f-size-sm;
+$f-txt-md: $f-size-xs;
+$f-txt-min: $f-size-xxs;
+
+$f-weight-title: $f-weight-8;
+$f-weight-btn: $f-weight-7;
+$f-weight-txt: $f-weight-4;
+
+// Sizes
+
+$background-image-height: 30vh;
+$body-padding: max(2rem, 8vw);
+
+$body-space-max: 0;
+$body-space-min: 0;
+
+$modal-space-max: 0;
+$modal-space-def: 0;
+$modal-space-min: 0;
+
+$card-space-max: 0;
+$card-space-def: 0;
+$card-space-min: 0;
+
+$btn-padding-max: 0;
+$btn-padding-def: 0;
+$btn-padding-min: 0;

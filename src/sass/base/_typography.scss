@@ -1,0 +1,141 @@
+h1,
+h2,
+h3 {
+  font-weight: $f-weight-title;
+}
+
+h1,
+h2 {
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+h1,
+.title-primary {
+  --color: #{$clr-txt-primary};
+  --f-size: #{$f-title-max};
+
+  color: var(--color);
+  font-size: var(--f-size);
+  line-height: $f-lineheight-xs;
+
+  @include breakpoint(max, tablet-lg) {
+    --f-size: #{$f-title-lg};
+    line-height: $f-lineheight-xxs;
+  }
+
+  @include breakpoint(max, tablet-min) {
+    --f-size: #{$f-title-md + 0.6};
+  }
+
+  @include breakpoint(max, phone-lg) {
+    --f-size: #{$f-title-md};
+  }
+
+  @include breakpoint(max, phone-xs) {
+    --f-size: #{$f-title-sm - 0.5};
+  }
+
+  @include breakpoint-landscape(phone) {
+    --f-size: #{$f-title-md};
+  }
+}
+
+h2,
+.title-secondary {
+  --f-size: #{$f-title-lg};
+  --color: #{$clr-txt-primary};
+
+  font-size: var(--f-size);
+  color: var(--color);
+  line-height: $f-lineheight-sm;
+
+  @include breakpoint(max, tablet-lg) {
+    --f-size: #{$f-title-sm};
+  }
+
+  &--white {
+    --color: #{$clr-txt-secondary};
+  }
+
+  &--red {
+    --color: #{$clr-txt-tertiary};
+  }
+}
+
+h3,
+.title-tertiary {
+  --f-size: #{$f-title-xs};
+  --color: #{$clr-txt-secondary};
+
+  font-size: var(--f-size);
+  color: var(--color);
+  line-height: $f-lineheight-xl;
+  text-transform: capitalize;
+
+  @include breakpoint(max, tablet-lg) {
+    --f-size: #{$f-title-min};
+  }
+}
+
+p,
+a {
+  --f-size: #{$f-txt-max};
+
+  @include breakpoint(max, tablet-lg) {
+    --f-size: #{$f-txt-md};
+  }
+
+  @include breakpoint(max, phone-xs) {
+    --f-size: #{$f-txt-min};
+  }
+
+  @include breakpoint-landscape(phone) {
+    --f-size: #{$f-txt-md};
+  }
+}
+
+p {
+  --color: #{$clr-txt-primary};
+
+  font-size: var(--f-size);
+  font-weight: $f-weight-txt;
+  line-height: $f-lineheight-max;
+  color: var(--color);
+
+  @include breakpoint(max, tablet-lg) {
+    line-height: $f-lineheight-xl;
+  }
+
+  @include breakpoint(max, phone-xs) {
+    line-height: $f-lineheight-md;
+  }
+}
+
+a {
+  --color: #{$clr-primary};
+  --color-border: var(--color);
+
+  font-size: var(--f-size);
+  font-weight: $f-weight-txt * 2;
+  line-height: $f-lineheight-xxs;
+  text-transform: capitalize;
+  text-decoration: none;
+  letter-spacing: $f-letterspacing-xs;
+
+  color: var(--color);
+  border-bottom: $border-size-sm solid var(--color-border);
+  padding-bottom: 0.55em;
+  transition: $pointer;
+
+  @include hover {
+    --color: #{$clr-primary-light};
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

@@ -1,0 +1,70 @@
+.about {
+  --color-bg: #{$clr-background-secondary};
+
+  background-color: var(--color-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'image content';
+
+  @include breakpoint(max, tablet-min) {
+    grid-template-rows: $background-image-height auto;
+    grid-template-areas:
+      'image image image'
+      'content content content';
+  }
+
+  @include breakpoint-landscape(phone) {
+    grid-template-rows: unset;
+    grid-template-areas: 'image content';
+  }
+
+  &__background-image {
+    grid-area: image;
+    @include size(100%);
+    @include background-img('./images/desktop/image-strategic.jpg');
+  }
+
+  &__content {
+    position: relative;
+    background-color: var(--color-bg);
+    padding-inline: $body-padding;
+    padding-top: multiplier($body-padding, 2);
+    padding-bottom: multiplier($body-padding, 3);
+
+    grid-area: content;
+    display: grid;
+    justify-items: start;
+    gap: $size-md;
+
+    @include breakpoint(max, tablet-min) {
+      padding-bottom: multiplier($body-padding, 2);
+    }
+
+    h2,
+    p {
+      --color: #{$clr-white};
+    }
+
+    @include before {
+      --width: 7vw;
+      --height: 6.1rem;
+
+      content: '';
+      @include absolute(top-left, 17vw, -7%);
+      @include background-img('./images/desktop/bg-pattern-wave-red.svg');
+      @include size(var(--width), var(--height));
+      background-size: var(--width);
+
+      @include breakpoint(max, tablet-min) {
+        --width: 18vw;
+
+        @include absolute(top-left, -7%, 8vw);
+      }
+
+      @include breakpoint-landscape(phone) {
+        --width: 7vw;
+        @include absolute(top-left, 17vw, -7%);
+      }
+    }
+  }
+}

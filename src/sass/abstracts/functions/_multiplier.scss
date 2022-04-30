@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@use 'sass:string';
+
+/// Multiplier
+/// @author Martin Kamír
+///
+@function multiplier($value, $number) {
+  $func: string.slice(#{$value}, 1, 3);
+  $value1: string.slice(#{$value}, 5, -7);
+  $value2: string.slice(#{$value}, 11, -2);
+
+  @if $func == 'max' {
+    @return max(calc($value1 * $number), calc($value2 * $number));
+  } @else if $func == 'min' {
+    @return min(calc($value1 * $number), calc($value2 * $number));
+  }
+}

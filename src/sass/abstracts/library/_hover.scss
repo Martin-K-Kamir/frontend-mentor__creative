@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@mixin hover {
+  @media not all and (pointer: coarse) {
+    &:hover,
+    &:focus-visible {
+      @content;
+    }
+  }
+}

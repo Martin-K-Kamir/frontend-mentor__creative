@@ -1,0 +1,124 @@
+.btn {
+  --color: #{$clr-white};
+  --color-bg: #{$clr-black};
+  --color-bg-hover: #{clr-opacity($clr-black, 6)};
+  --f-size: #{$f-txt-max};
+
+  font-size: var(--f-size);
+  font-weight: $f-weight-btn;
+  line-height: $f-lineheight-xxs;
+  letter-spacing: $f-letterspacing-xs;
+  text-transform: capitalize;
+  padding: 1.25em 2em;
+  width: max-content;
+  transition: $pointer;
+
+  color: var(--color);
+  background-color: var(--color-bg);
+
+  @include hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  @include breakpoint(max, tablet-lg) {
+    --f-size: #{$f-txt-md};
+  }
+
+  @include breakpoint(max, phone-xs) {
+    --f-size: #{$f-size-min * 1.3};
+  }
+
+  @include breakpoint-landscape(phone) {
+    --f-size: #{$f-txt-min};
+  }
+
+  &--primary {
+    --color-bg: #{$clr-primary};
+    --color-bg-hover: #{$clr-primary-light};
+  }
+
+  &--secondary {
+    --color-bg: #{$clr-secondary};
+    --color-bg-hover: #{$clr-secondary-light};
+    --f-size: #{$f-txt-md};
+  }
+}
+
+.btn-arrow {
+  & svg g {
+    --color: #{$clr-primary};
+
+    stroke: var(--color);
+    transition: $pointer;
+  }
+
+  @include hover {
+    & svg g {
+      --color: #{$clr-primary-light};
+    }
+  }
+}
+
+.btn-hamburger {
+  $this: &;
+  position: relative;
+  transition: background-color 0.25s;
+  @include size(2.4rem, 2rem);
+  @include flex(column, justify-center);
+
+  @include breakpoint(max, tablet-min) {
+    @include size(2.3rem, 1.9rem);
+  }
+
+  @include hover {
+    & #{this}__line {
+      --color: #{clr-opacity($clr-white, 8)};
+
+      @include breakpoint(max, $tablet-min) {
+        --color: #{$clr-secondary-light};
+      }
+    }
+  }
+
+  &__line {
+    $_gap: 16px;
+    --color: #{$clr-white};
+
+    position: absolute;
+    transition: 0.25s;
+    display: block;
+    background-color: var(--color);
+    @include size(100%, 2px);
+
+    @include breakpoint(max, tablet-min) {
+      --color: #{$clr-secondary};
+    }
+
+    @include only(first) {
+      margin-bottom: $_gap;
+    }
+
+    @include only(last) {
+      margin-top: $_gap;
+    }
+
+    #{$this}--js-active & {
+      @include only(1, 3) {
+        margin: 0 !important;
+        width: 2.3rem;
+      }
+
+      @include only(first) {
+        transform: rotate(135deg);
+      }
+
+      @include only(2) {
+        opacity: 0;
+      }
+
+      @include only(last) {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}

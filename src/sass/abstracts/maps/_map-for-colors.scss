@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@import '../properties/color-palette';
+@import '../properties/tokens';
+
+$map-for-colors: (
+  'clr-primary': $clr-primary,
+  'clr-secondary': $clr-secondary,
+  'clr-tertiary': $clr-tertiary,
+  'clr-white': $clr-white,
+  'clr-black': $clr-black,
+  'clr-gray': $gray-7,
+) !default;

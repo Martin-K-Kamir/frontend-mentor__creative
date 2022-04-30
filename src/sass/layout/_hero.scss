@@ -1,0 +1,81 @@
+.hero {
+  $this: &;
+
+  min-height: 90vh;
+  padding-left: $body-padding;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'content image image';
+
+  @include breakpoint(max, tablet-min) {
+    padding: 0;
+    grid-template-rows: $background-image-height auto;
+    grid-template-areas:
+      'image image image'
+      'content content content';
+  }
+
+  @include breakpoint-landscape(phone) {
+    grid-template-rows: unset;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'content image image';
+  }
+
+  &__background-image {
+    $_opacity-default: 6;
+    $_opacity-landscape: 8;
+
+    grid-area: image;
+    @include size(100%);
+    @include background-img(
+      './images/desktop/image-hero.jpg',
+      clr-opacity($clr-white, $_opacity-default) transparent,
+      90deg
+    );
+
+    @include breakpoint(max, tablet-min) {
+      background-image: url('./images/desktop/image-hero.jpg');
+    }
+
+    @include breakpoint-landscape(phone) {
+      @include background-img(
+        './images/desktop/image-hero.jpg',
+        clr-opacity($clr-white, $_opacity-landscape) transparent,
+        90deg
+      );
+    }
+  }
+
+  &__content {
+    max-width: $size-content-lg;
+    z-index: 1;
+
+    grid-area: content;
+    grid-column: 1 / 3;
+    display: grid;
+    align-content: center;
+    gap: $size-lg;
+    justify-items: start;
+
+    @include breakpoint(max, tablet-lg) {
+      gap: $size-sm;
+    }
+
+    @include breakpoint(max, tablet-min) {
+      grid-column: 1 / -1;
+      padding-inline: $body-padding;
+    }
+
+    @include breakpoint(max, phone-xs) {
+      gap: $size-xxs;
+    }
+
+    @include breakpoint-landscape(phone) {
+      padding-block: 15vh;
+    }
+
+    #{$this}__description {
+      max-width: $size-content-md;
+    }
+  }
+}

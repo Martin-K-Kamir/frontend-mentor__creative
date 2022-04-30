@@ -1,0 +1,8 @@
+.logo {
+  @include flex(align-center);
+
+  & a {
+    padding: 0;
+    border: none;
+  }
+}

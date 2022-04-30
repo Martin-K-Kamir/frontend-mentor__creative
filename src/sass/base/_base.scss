@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $f-family-primary;
+  font-size: $f-txt-md;
+  font-weight: $f-weight-txt;
+  color: $clr-txt-primary;
+  background-color: $clr-background-primary;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  stroke: unset;
+}
+
+.app-container {
+  max-width: 1920px;
+  margin-inline: auto;
+}

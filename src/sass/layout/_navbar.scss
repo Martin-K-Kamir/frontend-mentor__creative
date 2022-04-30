@@ -1,0 +1,127 @@
+.navbar {
+  $this: &;
+  min-height: 13vh;
+  padding-inline: $body-padding;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include linear-gradient(
+    $direction: right,
+    $colors: (
+      $clr-background-primary 50%,
+    )
+    (
+      $clr-background-tertiary 50%,
+    )
+  );
+
+  @include breakpoint(max, tablet-lg) {
+    grid-template-columns: 40% 60%;
+
+    @include linear-gradient(
+      $direction: right,
+      $colors: (
+        $clr-background-primary 40%,
+      )
+      (
+        $clr-background-tertiary 40%,
+      )
+    );
+  }
+
+  @include breakpoint(max, tablet-min) {
+    min-height: 10vh;
+    grid-template-columns: 70% 30%;
+    background: $clr-background-primary;
+  }
+
+  @include breakpoint-landscape(phone) {
+    min-height: 20vh;
+  }
+
+  &__main {
+    @include breakpoint(max, tablet-md) {
+      @include flex(align-center, justify-end);
+    }
+
+    @include breakpoint-landscape(phone) {
+      @include flex(align-center, justify-end);
+    }
+  }
+
+  &__dropmenu {
+    --color-bg: #{$clr-background-secondary};
+
+    opacity: 0;
+    background-color: var(--color-bg);
+    padding: $size-sm;
+    transition: 0.5s;
+    @include absolute(top, 50%);
+
+    &--js-active {
+      top: 100%;
+      opacity: 1;
+    }
+
+    & .btn--secondary {
+      --color-bg: #{$clr-primary};
+      --color-bg-hover: #{$clr-primary-light};
+    }
+  }
+
+  &__list {
+    min-height: 100%;
+    @include flex(align-center);
+
+    @include breakpoint(max, tablet-md) {
+      @include hide;
+    }
+
+    @include breakpoint-landscape(phone) {
+      @include hide;
+    }
+
+    #{$this}__dropmenu & {
+      @include hide(unhide);
+      @include flex(column, align-center, $size-xxs);
+    }
+  }
+
+  &__list-item {
+    margin-left: auto;
+
+    #{$this}__dropmenu & {
+      margin: 0;
+    }
+
+    & a {
+      --color: #{$clr-white};
+      --f-size: #{$f-txt-md};
+      font-weight: $f-weight-txt;
+      border: none;
+      transition: none;
+
+      @include breakpoint(max, tablet-lg) {
+        --f-size: #{$f-txt-min};
+      }
+
+      @include hover {
+        border-bottom: $border-size-sm solid var(--color-border);
+      }
+    }
+  }
+
+  & .btn-hamburger {
+    display: none;
+    z-index: 2;
+
+    @include breakpoint(max, tablet-md) {
+      display: flex;
+    }
+
+    @include breakpoint-landscape(phone) {
+      display: flex;
+    }
+  }
+}
