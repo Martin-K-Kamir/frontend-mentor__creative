@@ -28,18 +28,18 @@
     grid-area: image;
     @include size(100%);
     @include background-img(
-      './images/desktop/image-hero.jpg',
+      '../../images/desktop/image-hero.jpg',
       clr-opacity($clr-white, $_opacity-default) transparent,
       90deg
     );
 
     @include breakpoint(max, tablet-min) {
-      background-image: url('./images/desktop/image-hero.jpg');
+      background-image: url('../../images/desktop/image-hero.jpg');
     }
 
     @include breakpoint-landscape(phone) {
       @include background-img(
-        './images/desktop/image-hero.jpg',
+        '../../images/desktop/image-hero.jpg',
         clr-opacity($clr-white, $_opacity-landscape) transparent,
         90deg
       );
@@ -74,7 +74,7 @@
       padding-block: 15vh;
     }
 
-    #{$this}__description {
+    & #{$this}__description {
       max-width: $size-content-md;
     }
   }

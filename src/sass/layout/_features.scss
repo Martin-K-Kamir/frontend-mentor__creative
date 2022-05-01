@@ -1,6 +1,6 @@
 .features {
-  --color-bg: #{$clr-background-primary};
   $this: &;
+  --color-bg: #{$clr-background-primary};
 
   background-color: var(--color-bg);
   position: relative;
@@ -16,10 +16,6 @@
     grid-template-areas:
       'title title title'
       'content content content';
-
-    h2 {
-      --color: #{$clr-white};
-    }
   }
 
   &__title-wrapper {
@@ -35,6 +31,12 @@
       grid-column: 1 / -1;
       @include pos-Y(0);
     }
+
+    & #{$this}__title {
+      @include breakpoint(max, tablet-min) {
+        --color: #{$clr-white};
+      }
+    }
   }
 
   &__content {
@@ -43,11 +45,7 @@
     background-color: var(--color-bg);
     margin-top: -15%;
 
-    p {
-      --color: #{$clr-white};
-    }
-
-    #{$this}__list {
+    & #{$this}__list {
       list-style-type: none;
       counter-reset: li;
       padding-block: multiplier($body-padding, 1.5);
@@ -63,11 +61,15 @@
       }
     }
 
-    #{$this}__list-item {
+    & #{$this}__list-item {
       position: relative;
 
-      & h3 {
+      & #{$this}__list-title {
         margin-bottom: $size-xxxs;
+      }
+
+      & #{$this}__list-paragraph {
+        max-width: $size-content-md;
       }
 
       @include before {

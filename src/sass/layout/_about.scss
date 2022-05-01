@@ -1,5 +1,6 @@
 .about {
   --color-bg: #{$clr-background-secondary};
+  $this: &;
 
   background-color: var(--color-bg);
   display: grid;
@@ -21,7 +22,7 @@
   &__background-image {
     grid-area: image;
     @include size(100%);
-    @include background-img('./images/desktop/image-strategic.jpg');
+    @include background-img('../../images/desktop/image-strategic.jpg');
   }
 
   &__content {
@@ -30,7 +31,6 @@
     padding-inline: $body-padding;
     padding-top: multiplier($body-padding, 2);
     padding-bottom: multiplier($body-padding, 3);
-
     grid-area: content;
     display: grid;
     justify-items: start;
@@ -40,31 +40,18 @@
       padding-bottom: multiplier($body-padding, 2);
     }
 
-    h2,
-    p {
-      --color: #{$clr-white};
-    }
-
     @include before {
-      --width: 7vw;
-      --height: 6.1rem;
-
-      content: '';
-      @include absolute(top-left, 17vw, -7%);
-      @include background-img('./images/desktop/bg-pattern-wave-red.svg');
-      @include size(var(--width), var(--height));
-      background-size: var(--width);
+      @include wave(red, top-left, 17vw, -7%);
 
       @include breakpoint(max, tablet-min) {
         --width: 18vw;
 
         @include absolute(top-left, -7%, 8vw);
       }
+    }
 
-      @include breakpoint-landscape(phone) {
-        --width: 7vw;
-        @include absolute(top-left, 17vw, -7%);
-      }
+    & #{$this}__description {
+      max-width: $size-content-md;
     }
   }
 }

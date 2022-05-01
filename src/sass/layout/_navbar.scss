@@ -1,5 +1,6 @@
 .navbar {
   $this: &;
+
   min-height: 13vh;
   padding-inline: $body-padding;
   position: relative;
@@ -53,11 +54,16 @@
   &__dropmenu {
     --color-bg: #{$clr-background-secondary};
 
+    display: none;
     opacity: 0;
     background-color: var(--color-bg);
     padding: $size-sm;
     transition: 0.5s;
     @include absolute(top, 50%);
+
+    @include breakpoint(max, tablet-md) {
+      display: block;
+    }
 
     &--js-active {
       top: 100%;
@@ -75,15 +81,15 @@
     @include flex(align-center);
 
     @include breakpoint(max, tablet-md) {
-      @include hide;
+      display: none;
     }
 
     @include breakpoint-landscape(phone) {
-      @include hide;
+      display: none;
     }
 
-    #{$this}__dropmenu & {
-      @include hide(unhide);
+    & #{$this}__dropmenu & {
+      display: block;
       @include flex(column, align-center, $size-xxs);
     }
   }
@@ -91,23 +97,25 @@
   &__list-item {
     margin-left: auto;
 
-    #{$this}__dropmenu & {
+    & #{$this}__dropmenu & {
       margin: 0;
     }
 
-    & a {
-      --color: #{$clr-white};
+    & .link,
+    & .btn--secondary {
       --f-size: #{$f-txt-md};
-      font-weight: $f-weight-txt;
-      border: none;
-      transition: none;
 
       @include breakpoint(max, tablet-lg) {
         --f-size: #{$f-txt-min};
       }
+    }
+
+    & .link {
+      transition: none;
 
       @include hover {
-        border-bottom: $border-size-sm solid var(--color-border);
+        padding-bottom: 0.45em;
+        border-bottom: $border-size-sm solid var(--color);
       }
     }
   }

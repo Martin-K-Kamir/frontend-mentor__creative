@@ -1,0 +1,75 @@
+@mixin wave($color, $side, $top, $left) {
+  --width: 7vw;
+  --height: 6.1rem;
+
+  content: '';
+  @include absolute(#{$side}, $top, $left);
+  @include background-img('../../../images/desktop/bg-pattern-wavy-#{$color}.svg');
+  @include size(var(--width), var(--height));
+  background-size: var(--width);
+
+  @include breakpoint-landscape(phone) {
+    --width: 7vw;
+    @include absolute(#{$side}, $top, $left);
+  }
+}
+
+[data-aos='reveal-left'] {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transition-property: transform, opacity, clip-path;
+
+  &.aos-animate {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[data-aos='reveal-left-wave'] {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transition-property: transform, opacity, clip-path;
+
+  &.aos-animate {
+    opacity: 1;
+    clip-path: inset(0 -8% 0 0);
+  }
+}
+
+[data-aos='reveal-bottom'] {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition-property: transform, opacity, clip-path;
+
+  &.aos-animate {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[data-aos='reveal-right'] {
+  clip-path: inset(0 0 0 100%);
+  opacity: 0;
+  transition-property: transform, opacity, clip-path;
+
+  &.aos-animate {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[data-aos='reveal-right-features'] {
+  clip-path: inset(0 0 0 100%);
+  opacity: 0;
+  transition-property: transform, opacity, clip-path;
+
+  &.aos-animate {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  @include breakpoint(max, tablet-min) {
+    clip-path: unset !important;
+    opacity: 1 !important;
+  }
+}

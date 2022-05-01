@@ -1,0 +1,121 @@
+.projects {
+  $this: &;
+
+  position: relative;
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'title article article';
+
+  @include breakpoint(max, tablet-min) {
+    grid-template-areas:
+      'article article article'
+      'title title title';
+  }
+
+  &__title-wrapper {
+    --color-bg: #{$clr-background-secondary};
+
+    grid-area: title;
+    z-index: 2;
+    padding: $body-padding;
+    width: 150%;
+    background-color: var(--color-bg);
+    @include absolute(top, 0);
+
+    @include breakpoint(max, tablet-min) {
+      position: static;
+      padding-block: multiplier($body-padding, 2);
+      width: 100%;
+    }
+
+    @include before {
+      @include wave(white, top-right, 25%, -7%);
+
+      @include breakpoint(max, tablet-min) {
+        display: none;
+      }
+    }
+
+    & #{$this}__title {
+      margin-bottom: $size-xl;
+      max-width: $size-content-min;
+
+      @include breakpoint(max, tablet-lg) {
+        margin-bottom: $size-lg;
+      }
+    }
+
+    & #{$this}__btn-arrow {
+      @include only(first) {
+        margin-right: $size-xxs;
+      }
+    }
+  }
+
+  &__article {
+    grid-area: article;
+
+    & #{$this}__article-container {
+      overflow: hidden;
+      text-decoration: none;
+      padding: 0;
+      border: none;
+      position: relative;
+      display: grid;
+      grid-template-areas: 'container';
+
+      @include hover {
+        & #{$this}__article-title,
+        & #{$this}__article-year {
+          --color: #{$clr-primary-light};
+        }
+
+        & #{$this}__article-image {
+          transform: scale(1.1);
+        }
+      }
+
+      @include after {
+        content: '';
+        display: block;
+        @include absolute(top, 0);
+        @include size(100%);
+        @include linear-gradient(
+          $direction: top,
+          $colors: (
+            clr-opacity($clr-black, 8),
+          )
+          (
+            transparent 50%,
+          )
+        );
+      }
+
+      & #{$this}__article-content,
+      & #{$this}__article-image {
+        grid-area: container;
+      }
+
+      & #{$this}__article-content {
+        z-index: 1;
+        padding: $body-padding;
+        display: grid;
+        place-content: end;
+        place-items: end;
+      }
+
+      & #{$this}__article-image {
+        @include size(100%);
+        object-fit: cover;
+        aspect-ratio: $landscape;
+        max-height: 80rem;
+        transition: $pointer;
+
+        @include breakpoint(max, tablet-lg) {
+          aspect-ratio: $box;
+        }
+      }
+    }
+  }
+}

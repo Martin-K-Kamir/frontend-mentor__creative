@@ -1,11 +1,22 @@
-h1,
-h2,
-h3 {
+.title-primary,
+.title-secondary,
+.title-tertiary {
+  --color: #{$clr-txt-primary};
+
+  color: var(--color);
   font-weight: $f-weight-title;
+
+  &--white {
+    --color: #{$clr-txt-secondary};
+  }
+
+  &--red {
+    --color: #{$clr-txt-tertiary};
+  }
 }
 
-h1,
-h2 {
+.title-primary,
+.title-secondary {
   text-transform: lowercase;
 
   &::first-letter {
@@ -13,12 +24,9 @@ h2 {
   }
 }
 
-h1,
 .title-primary {
-  --color: #{$clr-txt-primary};
   --f-size: #{$f-title-max};
 
-  color: var(--color);
   font-size: var(--f-size);
   line-height: $f-lineheight-xs;
 
@@ -44,35 +52,21 @@ h1,
   }
 }
 
-h2,
 .title-secondary {
   --f-size: #{$f-title-lg};
-  --color: #{$clr-txt-primary};
 
   font-size: var(--f-size);
-  color: var(--color);
   line-height: $f-lineheight-sm;
 
   @include breakpoint(max, tablet-lg) {
     --f-size: #{$f-title-sm};
   }
-
-  &--white {
-    --color: #{$clr-txt-secondary};
-  }
-
-  &--red {
-    --color: #{$clr-txt-tertiary};
-  }
 }
 
-h3,
 .title-tertiary {
   --f-size: #{$f-title-xs};
-  --color: #{$clr-txt-secondary};
 
   font-size: var(--f-size);
-  color: var(--color);
   line-height: $f-lineheight-xl;
   text-transform: capitalize;
 
@@ -81,9 +75,14 @@ h3,
   }
 }
 
-p,
-a {
+.paragraph,
+.link {
   --f-size: #{$f-txt-max};
+  --color: #{$clr-txt-primary};
+
+  color: var(--color);
+  font-size: var(--f-size);
+  font-weight: $f-weight-txt;
 
   @include breakpoint(max, tablet-lg) {
     --f-size: #{$f-txt-md};
@@ -96,15 +95,22 @@ a {
   @include breakpoint-landscape(phone) {
     --f-size: #{$f-txt-md};
   }
+
+  &--white {
+    --color: #{$clr-txt-secondary};
+  }
+
+  &--red {
+    --color: #{$clr-txt-tertiary};
+
+    @include hover {
+      --color: #{$clr-primary-light};
+    }
+  }
 }
 
-p {
-  --color: #{$clr-txt-primary};
-
-  font-size: var(--f-size);
-  font-weight: $f-weight-txt;
+.paragraph {
   line-height: $f-lineheight-max;
-  color: var(--color);
 
   @include breakpoint(max, tablet-lg) {
     line-height: $f-lineheight-xl;
@@ -115,27 +121,26 @@ p {
   }
 }
 
-a {
-  --color: #{$clr-primary};
-  --color-border: var(--color);
-
-  font-size: var(--f-size);
-  font-weight: $f-weight-txt * 2;
+.link {
+  cursor: pointer;
+  transition: $pointer;
   line-height: $f-lineheight-xxs;
   text-transform: capitalize;
   text-decoration: none;
   letter-spacing: $f-letterspacing-xs;
 
-  color: var(--color);
-  border-bottom: $border-size-sm solid var(--color-border);
-  padding-bottom: 0.55em;
-  transition: $pointer;
-
-  @include hover {
-    --color: #{$clr-primary-light};
-  }
-
   &:focus-visible {
     outline: none;
+  }
+
+  &--bold {
+    font-weight: $f-weight-txt * 2;
+  }
+
+  &--border {
+    --color-border: var(--color);
+
+    border-bottom: $border-size-sm solid var(--color-border);
+    padding-bottom: 0.65em;
   }
 }

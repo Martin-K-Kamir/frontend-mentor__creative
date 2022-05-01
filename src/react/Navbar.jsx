@@ -10,13 +10,19 @@ export default function Navbar() {
   const navbarList = (
     <ul className="navbar__list">
       <li className="navbar__list-item">
-        <a href="index.html">about</a>
+        <a className="link link--white" href="index.html">
+          about
+        </a>
       </li>
       <li className="navbar__list-item">
-        <a href="index.html">service</a>
+        <a className="link link--white" href="index.html">
+          service
+        </a>
       </li>
       <li className="navbar__list-item">
-        <a href="index.html">projects</a>
+        <a className="link link--white" href="index.html">
+          projects
+        </a>
       </li>
       <li className="navbar__list-item">
         <button className="btn btn--secondary">schedule call</button>

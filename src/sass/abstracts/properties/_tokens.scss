@@ -1,6 +1,7 @@
 @import './typography';
 @import './borders';
 @import './color-palette';
+@import './easing';
 
 // Colors
 $clr-white: white;
@@ -38,22 +39,7 @@ $f-weight-title: $f-weight-8;
 $f-weight-btn: $f-weight-7;
 $f-weight-txt: $f-weight-4;
 
-// Sizes
-
 $background-image-height: 30vh;
 $body-padding: max(2rem, 8vw);
 
-$body-space-max: 0;
-$body-space-min: 0;
-
-$modal-space-max: 0;
-$modal-space-def: 0;
-$modal-space-min: 0;
-
-$card-space-max: 0;
-$card-space-def: 0;
-$card-space-min: 0;
-
-$btn-padding-max: 0;
-$btn-padding-def: 0;
-$btn-padding-min: 0;
+$pointer: all 0.25s $ease-1;

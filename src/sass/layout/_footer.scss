@@ -1,0 +1,70 @@
+.footer {
+  $this: &;
+
+  position: relative;
+  padding: $body-padding;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  align-items: center;
+  row-gap: $size-md;
+  grid-template-areas:
+    'title btn'
+    'paragraph paragraph'
+    'links links';
+
+  @include breakpoint(max, tablet-sm) {
+    padding-block: multiplier($body-padding, 2);
+    grid-template-areas:
+      'title title'
+      'btn btn'
+      'paragraph paragraph'
+      'links links';
+  }
+
+  @include before {
+    @include wave(red, top-left, 25%, -4%);
+
+    @include breakpoint(max, tablet-sm) {
+      display: none;
+    }
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__btn {
+    grid-area: btn;
+  }
+
+  &__paragraph {
+    grid-area: paragraph;
+
+    @include breakpoint(max, tablet-sm) {
+      max-width: 25ch;
+    }
+  }
+
+  &__links-list {
+    grid-area: links;
+    @include flex($size-xxs, row);
+
+    & #{$this}__list-item {
+      @include only(2) {
+        margin-left: 0.5rem;
+      }
+
+      @include only(3) {
+        margin-left: 1rem;
+      }
+    }
+
+    & #{$this}__link-icon {
+      transition: $pointer;
+      @include hover {
+        fill: clr-opacity($clr-black, 6);
+      }
+    }
+  }
+}

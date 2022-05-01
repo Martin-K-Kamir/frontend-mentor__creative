@@ -1,7 +1,0 @@
-@each $name, $color in $map-for-colors {
-  .#{$name} {
-    --color: #{$color};
-
-    color: var(--color) !important;
-  }
-}

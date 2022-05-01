@@ -52,6 +52,10 @@
     transition: $pointer;
   }
 
+  &--js-disabled svg g {
+    stroke: clr-opacity($clr-white, 3) !important;
+  }
+
   @include hover {
     & svg g {
       --color: #{$clr-primary-light};
@@ -61,6 +65,7 @@
 
 .btn-hamburger {
   $this: &;
+
   position: relative;
   transition: background-color 0.25s;
   @include size(2.4rem, 2rem);
@@ -71,7 +76,7 @@
   }
 
   @include hover {
-    & #{this}__line {
+    & #{$this}__line {
       --color: #{clr-opacity($clr-white, 8)};
 
       @include breakpoint(max, $tablet-min) {
@@ -81,8 +86,8 @@
   }
 
   &__line {
-    $_gap: 16px;
     --color: #{$clr-white};
+    $_size: 16px;
 
     position: absolute;
     transition: 0.25s;
@@ -95,14 +100,14 @@
     }
 
     @include only(first) {
-      margin-bottom: $_gap;
+      margin-bottom: $_size;
     }
 
     @include only(last) {
-      margin-top: $_gap;
+      margin-top: $_size;
     }
 
-    #{$this}--js-active & {
+    & #{$this}--js-active & {
       @include only(1, 3) {
         margin: 0 !important;
         width: 2.3rem;
