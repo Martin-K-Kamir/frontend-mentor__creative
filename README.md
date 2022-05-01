@@ -1,6 +1,6 @@
 # Frontend Mentor - Creative
 
-![preview of order summary card](./frontend-mentor/preview.jpg)
+![preview of order summary card](./preview.jpg)
 
 This is a challenge from [Frontend Mentor](https://www.frontendmentor.io/). Coded by [me](https://www.frontendmentor.io/profile/Martin-K-Kamir)! 😁
 
