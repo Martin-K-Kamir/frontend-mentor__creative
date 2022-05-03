@@ -21,9 +21,9 @@ With this project i wanted to use css grid for the whole layout. I thought i cou
 
 ### Links
 
-- Live Site URL - [Link](https://sunnyside-martin-kamir.netlify.app/)
+- Live Site URL - [Link](https://creative-martin-kamir.netlify.app/)
 - Website - [Martin Kamír](https://martinkamir.com/)
 - Frontend Mentor - [@Martin-K-Kamir](https://www.frontendmentor.io/profile/Martin-K-Kamir)
-- Frontend Mentor Solution - [Solution link](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef)
+- Frontend Mentor Solution - [Solution link](https://www.frontendmentor.io/solutions/ceative-website-using-sass-react-postcss-Hy_EMdhr5)
 
 Happy coding! 😄

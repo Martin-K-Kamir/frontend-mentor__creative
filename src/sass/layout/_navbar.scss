@@ -54,6 +54,7 @@
   &__dropmenu {
     --color-bg: #{$clr-background-secondary};
 
+    z-index: 1;
     display: none;
     opacity: 0;
     background-color: var(--color-bg);
@@ -88,7 +89,7 @@
       display: none;
     }
 
-    & #{$this}__dropmenu & {
+    #{$this}__dropmenu & {
       display: block;
       @include flex(column, align-center, $size-xxs);
     }
@@ -97,7 +98,7 @@
   &__list-item {
     margin-left: auto;
 
-    & #{$this}__dropmenu & {
+    #{$this}__dropmenu & {
       margin: 0;
     }
 

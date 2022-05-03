@@ -60,6 +60,7 @@ export default function Projects() {
               : 'projects__btn-arrow  btn-arrow'
           }
           onClick={previousProject}
+          aria-label="Previous project"
         >
           <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
             <g transform="matrix(-1 0 0 1 40 0)" stroke="#F94F4F" fill="none" fill-rule="evenodd">
@@ -75,6 +76,7 @@ export default function Projects() {
               : 'projects__btn-arrow btn-arrow'
           }
           onClick={e => nextProject(e)}
+          aria-label="Next project"
         >
           <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
             <g stroke="#F94F4F" fill="none" fill-rule="evenodd">
@@ -85,7 +87,11 @@ export default function Projects() {
         </button>
       </div>
       <article className="projects__article" data-aos="reveal-bottom" data-aos-delay="200">
-        <a href="index.html" className="projects__article-container">
+        <a
+          href="index.html"
+          className="projects__article-container"
+          aria-label={projectsData[curProject].articleTitle}
+        >
           <img
             loading="lazy"
             className="projects__article-image"
