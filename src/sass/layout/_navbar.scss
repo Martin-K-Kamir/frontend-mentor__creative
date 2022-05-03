@@ -66,6 +66,10 @@
       display: block;
     }
 
+    @include breakpoint-landscape(phone) {
+      display: block;
+    }
+
     &--js-active {
       top: 100%;
       opacity: 1;

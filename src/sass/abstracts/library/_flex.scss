@@ -118,18 +118,18 @@
 
       & > * {
         flex: 1;
-        min-width: calc($col-width-max - $gap);
+        min-width: $col-width-max - $gap;
 
-        @media (max-width: $tablet-b) {
-          min-width: calc($col-width-md - $gap);
+        @media (max-width: $tablet-lg) {
+          min-width: $col-width-md - $gap;
         }
 
         @media (max-width: $tablet-min) {
-          min-width: calc($col-width-sm - $gap);
+          min-width: $col-width-sm - $gap;
         }
 
-        @media (max-width: $phone-s) {
-          min-width: calc($col-width-min - $gap);
+        @media (max-width: $phone-sm) {
+          min-width: $col-width-min - $gap;
         }
       }
 
